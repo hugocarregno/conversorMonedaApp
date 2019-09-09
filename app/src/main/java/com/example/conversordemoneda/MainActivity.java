@@ -22,11 +22,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dolar = findViewById(R.id.etDollars);
-        euro = findViewById(R.id.etEuros);
         aDolar = findViewById(R.id.rbDollar);
         aEuro = findViewById(R.id.rbEuro);
+        dolar.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                aEuro.setChecked(true);
+            }
+        });
+        euro = findViewById(R.id.etEuros);
+        euro.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                aDolar.setChecked(true);
+            }
+        });
+
         convertido = findViewById(R.id.etConvertido);
         convertir = findViewById(R.id.btConvert);
+
         convertir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
